@@ -3,6 +3,7 @@ package com.example.tutorialmod.block;
 import java.util.function.Supplier;
 
 import com.example.tutorialmod.TutorialMod;
+import com.example.tutorialmod.block.custom.JumpyBlock;
 import com.example.tutorialmod.item.ModCreativeModeTab;
 import com.example.tutorialmod.item.ModItems;
 
@@ -48,6 +49,10 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)), 
                     ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> JUMPY_BLOCK = registerBlock("jumpy_block", 
+                    () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                            .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
