@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import com.example.tutorialmod.TutorialMod;
 import com.example.tutorialmod.block.custom.JumpyBlock;
+import com.example.tutorialmod.block.custom.ZirconLampBlock;
 import com.example.tutorialmod.item.ModCreativeModeTab;
 import com.example.tutorialmod.item.ModItems;
 
@@ -51,8 +52,13 @@ public class ModBlocks {
                     ModCreativeModeTab.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> JUMPY_BLOCK = registerBlock("jumpy_block", 
-                    () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
-                            .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
+            () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> ZIRCON_LAMP = registerBlock("zircon_lamp", 
+            () -> new ZirconLampBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()
+                    .lightLevel(state -> state.getValue(ZirconLampBlock.LIT) ? 15 : 0)), ModCreativeModeTab.TUTORIAL_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
