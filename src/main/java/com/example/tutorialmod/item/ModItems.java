@@ -17,6 +17,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TutorialMod.MODID);
 
+    // mod items
     public static final RegistryObject<Item> ZIRCON = ITEMS.register("zircon",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
     
@@ -33,6 +34,7 @@ public class ModItems {
     public static final RegistryObject<Item> BLUEBERRY = ITEMS.register("blueberry",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)
             .food(new FoodProperties.Builder().nutrition(2).saturationMod(2f).build())));
+    // end mod items
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
