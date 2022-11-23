@@ -2,7 +2,10 @@ package com.example.tutorialmod;
 
 import com.example.tutorialmod.block.ModBlocks;
 import com.example.tutorialmod.item.ModItems;
+import com.example.tutorialmod.painting.ModPaintings;
 import com.example.tutorialmod.villager.ModVillagers;
+import com.example.tutorialmod.world.feature.ModConfiguredFeatures;
+import com.example.tutorialmod.world.feature.ModPlacedFeatures;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -45,6 +48,11 @@ public class TutorialMod
         ModBlocks.register(modEventBus);
 
         ModVillagers.register(modEventBus);
+
+        ModPaintings.register(modEventBus);
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
